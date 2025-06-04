@@ -4,8 +4,8 @@ addLayer("p", {
         position: 0, // Horizontal position within a row. By default it uses the layer id and sorts in alphabetical order
         color: "#000000",
         requires: new Decimal(10), // Can be a function that takes requirement increases into account
-        resource: "prestige points", // Name of prestige currency
-        baseResource: "points", // Name of resource prestige is based on
+        resource: "rizz", // Name of prestige currency
+        baseResource: "aura", // Name of resource prestige is based on
         baseAmount() {return player.points}, // Get the current amount of baseResource
         type: "normal", // normal: cost to gain currency depends on amount gained. static: cost depends on how much you already have
         exponent() { return ((Array.isArray(tmp.ma.mastered))?tmp.ma.mastered.includes(this.layer):false)?0.75:0.5 }, // Prestige currency exponent
