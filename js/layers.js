@@ -1,5 +1,5 @@
 addLayer("p", {
-        name: "prestige", // This is optional, only used in a few places, If absent it just uses the layer id.
+        name: "aura", // This is optional, only used in a few places, If absent it just uses the layer id.
         symbol: "A", // This appears on the layer's node. Default is the id with the first letter capitalized
         position: 0, // Horizontal position within a row. By default it uses the layer id and sorts in alphabetical order
         color: "#000000",
@@ -104,7 +104,7 @@ addLayer("p", {
 			},
 			13: {
 				title: "Self-Synergy",
-				description: "Points boost their own generation.",
+				description: "Aura boosts its own generation.",
 				cost() { return tmp.h.costMult11.times(((Array.isArray(tmp.ma.mastered))?tmp.ma.mastered.includes(this.layer):false)?50:5).pow(tmp.h.costExp11) },
 				effect() { 
 					let eff = player.points.plus(1).log10().pow(0.75).plus(1);
@@ -126,8 +126,8 @@ addLayer("p", {
 				},
 			},
 			14: {
-				title: "Prestigious Intensity",
-				description: "<b>Prestige Boost</b>'s effect is cubed (unaffected by softcap).",
+				title: "Aura Intensity",
+				description: "<b>Aura Boost</b>'s effect is cubed (unaffected by softcap).",
 				cost() { return tmp.h.costMult11.times(((Array.isArray(tmp.ma.mastered))?tmp.ma.mastered.includes(this.layer):false)?"1e589":"1e4070000").pow(tmp.h.costExp11) },
 				pseudoUnl() { return hasUpgrade("hn", 11) && hasUpgrade("p", 13) },
 				pseudoReq: 'Req: 1e168,000 Prestige Points in the "Productionless" Hindrance',
@@ -135,14 +135,14 @@ addLayer("p", {
 				unlocked() { return player.p.pseudoUpgs.includes(Number(this.id)) },
 			},
 			21: {
-				title: "More Prestige",
-				description() { return "Prestige Point gain is increased by "+(((Array.isArray(tmp.ma.mastered))?tmp.ma.mastered.includes(this.layer):false)?"1e52":"80")+"%." },
+				title: "More Aura",
+				description() { return "Rizz gain is increased by "+(((Array.isArray(tmp.ma.mastered))?tmp.ma.mastered.includes(this.layer):false)?"1e52":"80")+"%." },
 				cost() { return tmp.h.costMult11.times(((Array.isArray(tmp.ma.mastered))?tmp.ma.mastered.includes(this.layer):false)?1e171:20).pow(tmp.h.costExp11) },
 				unlocked() { return hasAchievement("a", 21)&&hasUpgrade("p", 11) },
 			},
 			22: {
-				title: "Upgrade Power",
-				description: "Point generation is faster based on your Prestige Upgrades bought.",
+				title: "Sigma Power",
+				description: "Aura generation is faster based on your Aura Upgrades bought.",
 				cost() { return tmp.h.costMult11.times(((Array.isArray(tmp.ma.mastered))?tmp.ma.mastered.includes(this.layer):false)?1e262:75).pow(tmp.h.costExp11) },
 				effect() {
 					let eff = Decimal.pow(1.4, player.p.upgrades.length);
@@ -163,8 +163,8 @@ addLayer("p", {
 				},
 			},
 			23: {
-				title: "Reverse Prestige Boost",
-				description: "Prestige Point gain is boosted by your Points.",
+				title: "Reverse Aura Boost",
+				description: "Rizz gain is boosted by your Aura.",
 				cost() { return tmp.h.costMult11.times(((Array.isArray(tmp.ma.mastered))?tmp.ma.mastered.includes(this.layer):false)?1e305:5e3).pow(tmp.h.costExp11) },
 				effect() {
 					let eff = player.points.plus(1).log10().cbrt().plus(1);
