@@ -6,6 +6,11 @@ addLayer("p", {
 	nodeStyle() { return {
 			color: (player.oldStyle?"white":"rgba(255, 255, 255, 0.75)"),
 		}},
+	componentStyles() { return {
+			"prestige-button": {
+				color: (player.oldStyle?"white":"rgba(255, 255, 255, 0.75)"),
+			},
+		}},
         requires: new Decimal(10), // Can be a function that takes requirement increases into account
         resource: "rizz", // Name of prestige currency
         baseResource: "aura", // Name of resource prestige is based on
